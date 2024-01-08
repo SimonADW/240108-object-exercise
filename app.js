@@ -1,20 +1,33 @@
 
 
 function CreateStopwatch() {
-	let startTime;
+	let startTime, running, endTime;
 	this.duration = 0, 
 
 	this.start = function() {
-		startTime = new Date().getTime();							
+		if (running) {
+			throw new Error("Stop watch is already running!")
+		}
+		
+		startTime = new Date().getTime();
+		running = true;		
 	}
 
 	this.stop = function() {
-		this.duration = new Date().getTime() - startTime;
-		console.log(sw.duration/1000);		
+		if (!running) {
+			throw new Error("Stop watch is not running!")
+		}
+		seconds = (new Date().getTime() - startTime) / 1000;
+		this.duration += seconds;
+		console.log(sw.duration);		
+		running = false;
 	}
 
 	this.reset = function() {
-		this.duration = 0
+		this.duration = 0;
+		running = false;
+		startTime = null;
+		endTime = null;
 	}
 }
 
