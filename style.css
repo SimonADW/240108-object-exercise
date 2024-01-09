@@ -15,8 +15,9 @@ section {
 }
 
 section div {
-	width: 4rem;
+	width: fit-content;
 	height: 3rem;
+	padding: 0 2rem;
 	border: 2px solid black;
 	font-size: 2rem;
 	display: flex;

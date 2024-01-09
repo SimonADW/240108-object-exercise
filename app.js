@@ -1,5 +1,4 @@
 
-
 function CreateStopwatch() {
 	let startTime, running, endTime;
 	this.duration = 0, 
@@ -31,5 +30,26 @@ function CreateStopwatch() {
 	}
 }
 
-sw = new CreateStopwatch()
+sw = new CreateStopwatch();
+
+const startButton = document.querySelector(".start");
+const stopButton = document.querySelector(".stop");
+const resetButton = document.querySelector(".reset");
+const secondsDisplay = document.querySelector(".seconds");
+
+startButton.addEventListener("click", ()=> sw.start());
+
+stopButton.addEventListener("click", ()=> {
+	sw.stop();
+	secondsDisplay.textContent = sw.duration;
+});
+
+resetButton.addEventListener("click", ()=> {
+	sw.reset()
+	secondsDisplay.textContent = sw.duration;	
+});
+
+
+
+
 
