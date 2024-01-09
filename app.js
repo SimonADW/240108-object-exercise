@@ -41,7 +41,7 @@ startButton.addEventListener("click", ()=> sw.start());
 
 stopButton.addEventListener("click", ()=> {
 	sw.stop();
-	secondsDisplay.textContent = sw.duration;
+	secondsDisplay.textContent = sw.duration.toFixed(3);
 });
 
 resetButton.addEventListener("click", ()=> {
